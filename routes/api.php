@@ -19,6 +19,9 @@ use App\Http\Controllers\TransactionController;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+Route::post('user-token', [UserController::class, 'generateToken']);
+Route::post('user-registration', [UserController::class, 'registerUser']);
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/transaction', [TransactionController::class, 'store']);
     Route::get('/balance', [UserController::class, 'balance']);
