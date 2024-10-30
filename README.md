@@ -68,20 +68,14 @@ The application should now be running at http://127.0.0.1:8000.
 
 API Endpoints
 1. User Registration<br/>
-Endpoint: POST /api/user-registration
+Endpoint: POST /api/user-registration<br/>
 Description: Registers a new user.
 Request Body:
 json
-Copy code
-{
-  "name": "John Doe",
-  "email": "johndoe@example.com",
-  "password": "password",
-  "password_confirmation": "password"
-}
+
 Response: Returns the newly created user details.
 2. User Login<br/>
-Endpoint: POST /api/user-token
+Endpoint: POST /api/user-token<br/>
 Description: Logs in the user and returns an access token.
 Request Body:
 json
@@ -91,20 +85,21 @@ json
   "token": "access_token_string"
 }
 3. Create a Transaction<br/>
-Endpoint: POST /api/transaction
+Endpoint: POST /api/transaction<br/>
 Description: Allows users to create a deposit or withdrawal transaction.
 Headers: Authorization: Bearer {access_token}
 Request Body:
 json
-Copy code
+
 {
   "user_id": 1,
   "amount": 100.00,
   "type": "deposit" // or "withdrawal"
 }
+
 Response: Returns transaction details if successful.
 4. Retrieve Balance<br/>
-Endpoint: GET /api/balance
+Endpoint: GET /api/balance<br/>
 Description: Returns the user’s current balance.
 Headers: Authorization: Bearer {access_token}
 Response:
@@ -135,12 +130,13 @@ Balance Retrieval: Ensures that the correct balance is returned for each user.
 
 ## Scaling and Production Considerations
 For a production setup and scalability improvements, consider the following:
-
-Database Scaling: Use partitioning or sharding strategies as user count grows.
-Queueing System: Implement job queues (e.g., with Redis) for handling high-frequency transactions asynchronously.
-Caching: Cache balance data using Redis to reduce database load on high-read operations.
-Load Balancing: Use load balancers to distribute requests across multiple instances of the application.
-Containerization: Deploy the application in containers (e.g., Docker) for easier scaling and environment management.
+<ol>
+<li>Database Scaling: Use partitioning or sharding strategies as user count grows.</li>
+<li>Queueing System: Implement job queues (e.g., with Redis) for handling high-frequency transactions asynchronously.</li>
+<li>Caching: Cache balance data using Redis to reduce database load on high-read operations.</li>
+<li>Load Balancing: Use load balancers to distribute requests across multiple instances of the application.</li>
+<li>Containerization: Deploy the application in containers (e.g., Docker) for easier scaling and environment management.</li>
+</ol>
 
 ## Troubleshooting
 Common issues and fixes:
