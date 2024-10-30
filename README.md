@@ -121,15 +121,15 @@ dotenv
 DB_CONNECTION=sqlite<br/>
 DB_DATABASE=:memory:<br/>
 
-2. Run Tests
+2. Run Tests<br/>
 Run the following command to execute all tests:
 
 `php artisan test`
-Key Test Cases
-User Registration: Verifies that users can register and log in.
-Authentication: Ensures only authenticated users can access transaction and balance endpoints.
-Transaction Processing: Tests both deposit and withdrawal functionality, ensuring correct balance updates.
-Balance Retrieval: Ensures that the correct balance is returned for each user.
+<b>Key Test Cases</b>
+- User Registration: Verifies that users can register and log in.<br/>
+- Authentication: Ensures only authenticated users can access transaction and balance endpoints.<br/>
+- Transaction Processing: Tests both deposit and withdrawal functionality, ensuring correct balance updates.<br/>
+- Balance Retrieval: Ensures that the correct balance is returned for each user.<br/>
 
 ## Scaling and Production Considerations
 For a production setup and scalability improvements, consider the following:
