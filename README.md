@@ -35,6 +35,7 @@ Ensure you have the following installed:
 
 git clone https://github.com/temitayo315/transaction-processing.git<br/>
 cd transaction-processing
+
 2. Install Dependencies
 `composer install`
 
@@ -51,6 +52,7 @@ DB_PORT=3306<br/>
 DB_DATABASE=transaction-processing<br/>
 DB_USERNAME=your_username<br/>
 DB_PASSWORD=your_password<br/>
+
 4. Generate Application Key
 
 `php artisan key:generate`
@@ -73,7 +75,7 @@ Description: Registers a new user.
 Request Body:
 json
 
-Response: Returns the newly created user details.
+Response: Returns the newly created user details.<br/>
 2. User Login<br/>
 Endpoint: POST /api/user-token<br/>
 Description: Logs in the user and returns an access token.
@@ -83,7 +85,8 @@ Response:
 json
 {
   "token": "access_token_string"
-}
+}<br/>
+
 3. Create a Transaction<br/>
 Endpoint: POST /api/transaction<br/>
 Description: Allows users to create a deposit or withdrawal transaction.
@@ -97,7 +100,7 @@ json
   "type": "deposit" // or "withdrawal"
 }
 
-Response: Returns transaction details if successful.
+Response: Returns transaction details if successful.<br/>
 4. Retrieve Balance<br/>
 Endpoint: GET /api/balance<br/>
 Description: Returns the user’s current balance.
