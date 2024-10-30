@@ -12,11 +12,13 @@
 <p>A simple backend transaction processing API developed in Laravel to handle concurrent transactions, maintain data integrity, and ensure basic security. This project allows users to create deposit and withdrawal transactions, retrieve their balance, and prevent issues like double-spending through concurrency control.</p>
 
 ## Features
-<p>User Registration & Authentication: Users can register and authenticate to access endpoints.
-Transaction Processing: Supports deposit and withdrawal transactions with concurrency control.
-Balance Retrieval: Users can retrieve their current balance.
-Concurrency Safety: Prevents double-spending with database locking.
-Unit & Feature Tests: Includes automated tests for key functionalities.</p>
+<ul>
+<li>User Registration & Authentication: Users can register and authenticate to access endpoints.</li>
+<li>Transaction Processing: Supports deposit and withdrawal transactions with concurrency control.</li>
+<li>Balance Retrieval: Users can retrieve their current balance.</li>
+<li>Concurrency Safety: Prevents double-spending with database locking.</li>
+<li>Unit & Feature Tests: Includes automated tests for key functionalities.</li>
+</ul>
 
 ## Prerequisites
 Ensure you have the following installed:
@@ -29,50 +31,43 @@ Ensure you have the following installed:
 <li>Follow these steps to set up the project on your local machine.</li>
 </ul>
 
-1. Clone the Repository
-bash
-Copy code
-git clone https://github.com/temitayo315/transaction-processing.git
+1. Clone the Repository<br/>
+
+git clone https://github.com/temitayo315/transaction-processing.git<br/>
 cd transaction-processing
 2. Install Dependencies
-bash
-Copy code
 `composer install`
+
 3. Set Up Environment Configuration
 Copy the example environment file and configure it for your local setup:
-bash
-Copy code
-cp .env.example .env
+
+cp .env.example .env<br/>
 Open .env and update the following environment variables to match your database setup:
 dotenv
-Copy code
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=transaction-processing
-DB_USERNAME=your_username
-DB_PASSWORD=your_password
+<br/>
+DB_CONNECTION=mysql<br/>
+DB_HOST=127.0.0.1<br/>
+DB_PORT=3306<br/>
+DB_DATABASE=transaction-processing<br/>
+DB_USERNAME=your_username<br/>
+DB_PASSWORD=your_password<br/>
 4. Generate Application Key
-bash
-Copy code
+
 `php artisan key:generate`
+
 5. Run Migrations
 This will create the necessary tables in the database.
 
-bash
-Copy code
 `php artisan migrate`
 
 ## Running the Application
 To start the development server:
 
-bash
-Copy code
 `php artisan serve`
 The application should now be running at http://127.0.0.1:8000.
 
 API Endpoints
-1. User Registration
+1. User Registration<br/>
 Endpoint: POST /api/user-registration
 Description: Registers a new user.
 Request Body:
@@ -85,7 +80,7 @@ Copy code
   "password_confirmation": "password"
 }
 Response: Returns the newly created user details.
-2. User Login
+2. User Login<br/>
 Endpoint: POST /api/user-token
 Description: Logs in the user and returns an access token.
 Request Body:
@@ -95,7 +90,7 @@ json
 {
   "token": "access_token_string"
 }
-3. Create a Transaction
+3. Create a Transaction<br/>
 Endpoint: POST /api/transaction
 Description: Allows users to create a deposit or withdrawal transaction.
 Headers: Authorization: Bearer {access_token}
@@ -108,13 +103,12 @@ Copy code
   "type": "deposit" // or "withdrawal"
 }
 Response: Returns transaction details if successful.
-4. Retrieve Balance
+4. Retrieve Balance<br/>
 Endpoint: GET /api/balance
 Description: Returns the user’s current balance.
 Headers: Authorization: Bearer {access_token}
 Response:
 json
-Copy code
 {
   "balance": 100.00
 }
@@ -126,9 +120,9 @@ This project includes feature tests to verify the functionality and correctness 
 Edit the .env.testing file to set up a test database (for SQLite, you can use an in-memory database):
 
 dotenv
-Copy code
-DB_CONNECTION=sqlite
-DB_DATABASE=:memory:
+DB_CONNECTION=sqlite<br/>
+DB_DATABASE=:memory:<br/>
+
 2. Run Tests
 Run the following command to execute all tests:
 
