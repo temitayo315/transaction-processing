@@ -33,7 +33,7 @@ class UserController extends Controller
         }
             
             $user = Auth::user();
-            $token = $user->createToken($request->email)->plainTextToken();
+            $token = $user->createToken($request->email)->plainTextToken;
             $cookie = cookie('jwt', $token, 60 * 24);
             return response([
                 'message' => 'Cookie generated with Token',
